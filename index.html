@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,105 +13,197 @@ body {
     overflow: hidden;
 }
 
-/* Floating hearts */
-.heart {
+/* Floating background hearts */
+.bg-heart {
     position: absolute;
     color: #ff4d88;
     font-size: 20px;
     animation: float 10s linear infinite;
-    opacity: 0.7;
+    opacity: 0.6;
 }
 
 @keyframes float {
-    0% {
-        transform: translateY(100vh);
-        opacity: 0;
-    }
-    20% {
-        opacity: 0.8;
-    }
-    100% {
-        transform: translateY(-10vh);
-        opacity: 0;
-    }
+    0% { transform: translateY(100vh); opacity: 0; }
+    20% { opacity: 0.8; }
+    100% { transform: translateY(-10vh); opacity: 0; }
 }
 
-/* Center the envelope */
+/* Center container */
 .container {
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
-/* Envelope style */
+/* Envelope */
 .envelope {
     width: 520px;
-    background: #fffaf5;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0px 15px 30px rgba(0,0,0,0.2);
-    max-height: 80vh;
-    overflow-y: auto;
-    border: 2px solid #ffc0cb;
+    height: 300px;
+    background: #ffccd5;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    transition: height 0.6s ease;
 }
 
-/* Letter text */
+/* Flap */
+.flap {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    background: #ffb3c6;
+    clip-path: polygon(0 0, 50% 100%, 100% 0);
+    transform-origin: top;
+    transition: transform 0.6s ease;
+}
+
+/* Name on envelope */
+.name {
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    color: #cc3366;
+    font-weight: bold;
+}
+
+/* Letter */
+.letter {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    background: #fffaf5;
+    padding: 25px;
+    overflow-y: auto;
+    border-radius: 6px;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
 p {
     line-height: 1.7;
-    font-size: 16px;
+    font-size: 15px;
     color: #333;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
+}
+
+/* Open state */
+.envelope.open {
+    height: 80vh;
+}
+
+.envelope.open .flap {
+    transform: rotateX(180deg);
+}
+
+.envelope.open .letter {
+    opacity: 1;
+}
+
+/* Heart explosion hearts */
+.explosion-heart {
+    position: absolute;
+    color: #ff3366;
+    font-size: 18px;
+    pointer-events: none;
+    animation: explode 1s ease-out forwards;
+}
+
+@keyframes explode {
+    0% {
+        transform: translate(0,0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--x), var(--y)) scale(0.5);
+        opacity: 0;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- Floating hearts -->
-<div class="heart" style="left:10%; animation-delay:0s;">♥</div>
-<div class="heart" style="left:20%; animation-delay:2s;">♥</div>
-<div class="heart" style="left:30%; animation-delay:4s;">♥</div>
-<div class="heart" style="left:40%; animation-delay:1s;">♥</div>
-<div class="heart" style="left:60%; animation-delay:3s;">♥</div>
-<div class="heart" style="left:70%; animation-delay:5s;">♥</div>
-<div class="heart" style="left:80%; animation-delay:2s;">♥</div>
-<div class="heart" style="left:90%; animation-delay:6s;">♥</div>
+<!-- Background floating hearts -->
+<div class="bg-heart" style="left:10%; animation-delay:0s;">♥</div>
+<div class="bg-heart" style="left:30%; animation-delay:2s;">♥</div>
+<div class="bg-heart" style="left:50%; animation-delay:4s;">♥</div>
+<div class="bg-heart" style="left:70%; animation-delay:1s;">♥</div>
+<div class="bg-heart" style="left:90%; animation-delay:3s;">♥</div>
 
 <div class="container">
-<div class="envelope">
+    <div class="envelope" onclick="toggleEnvelope(this)">
+        <div class="flap"></div>
 
-<p>You have asked me numerous times why I love you and what makes you different from other guys, and after prolonging it for so long, I thought it was time to tell you now.</p>
+        <!-- Change this name if you want -->
+        <div class="name">For Beast Boy</div>
 
-<p>One of the reasons why I love you is because you listen to me when I talk. You make me feel seen. You make me feel heard. You actually respond when I talk to you about something, and you actually try to make a difference and change certain habits. You respect me. You do not put me down. You always compliment me and fill me with love. You always reassure me and make sure I do not get any second guesses. You do not even give me time to have second guesses because of the amount of times you tell me that you love me.</p>
+        <div class="letter">
 
-<p>When I am with you, I do not feel so stressed. I feel happier. I am not as depressed anymore. I feel safe and chosen. You are very consistent with everything that you do, especially when it comes to me. Even when you were pursuing me, seven years is a long time, and for you to always be there and let it be known how you felt about me meant a lot.</p>
+<p>One of the reasons why I love you is because you listen to me when I talk. You make me feel seen. You make me feel heard. You actually respond when I talk to you about something and you actually try to make a difference and change certain habits. You respect me. You do not put me down. You always compliment me. You fill me with love. You always reassure me and make sure I do not get any second guesses. You do not even give me time to have second guesses because of the amount of times you tell me that you love me.</p>
 
-<p>One thing that I really love about your character is that you are kind in a way that is very cringe and corny, but I love it. You are genuine about your feelings for me and you make that very clear. You are okay with us being long distance, and even when you are busy, you still make time for me. You always text me first thing in the morning. If we do not talk all day, you still make sure we talk, even if it is late at night. You call me. You check on me. You make the effort.</p>
+<p>When I am with you I do not feel so stressed. I feel happier. I am not as depressed anymore. I feel safe and chosen. You are very consistent with everything that you do, especially when it comes to me. When you were pursuing me, seven years is a long time, and for you to always make it known how you felt about me meant a lot to me.</p>
 
-<p>What makes you different from other people and other men is that you do not give me generic compliments or generic answers. When I ask you specific questions, you go into detail about why you love me and what you love about me. You answer all of my random questions, even the ones that might seem silly. You are not overly sexual, and you do not make every conversation about that. You never make me feel uncomfortable.</p>
+<p>One thing that I really love about your character is that you are kind in a way that is very corny, but I love it. You are genuine about your feelings for me and you make that very clear. Even with us being in a long distance relationship, you still make time for me. You always text me first thing in the morning. If we do not talk all day, you still make sure we talk, even if it is late at night. You call me. You check on me. You make the effort.</p>
+
+<p>What makes you different from other people and other men is that you do not give me generic compliments or generic answers. When I ask you specific questions, you actually go into detail about why you love me and what you love about me. You answer all of my random questions, even the ones that might seem silly. You are not overly sexual and you do not make every conversation about that. You never make me feel uncomfortable.</p>
 
 <p>I also love that when I told you I felt like things were moving too fast, you slowed down. You listened to me and made sure I was comfortable with everything. That meant a lot to me.</p>
 
-<p>We have been friends for a very long time. We have known each other since seventh grade, and now I am a sophomore in college. Our friendship has always been close, and then on Christmas Eve last year, we officially became something more. That history means a lot to me.</p>
+<p>We have been friends for a very long time. We have known each other since seventh grade and now I am a sophomore in college. Our friendship has always been close, and then on Christmas Eve last year we officially became something more. That history means a lot to me.</p>
 
-<p>Another big reason why I love you is because you are willing to change for the better. You had habits and ways about you that were not always the best, but you worked on them. You became more mindful of other people's feelings. You think before you speak. You do not just say you will do better. You actually try, and you actually show it.</p>
+<p>Another big reason why I love you is because you are willing to change for the better. You had habits and ways about you that were not always the best, but you worked on them. You became more mindful of other people’s feelings. You think before you speak. You are not manipulative. You do not just say you are going to do better. You actually try and you actually show it.</p>
 
-<p>I love that we can joke with each other, fake argue, be playful, and then go right back to being all lovey and soft with each other, even if it is corny. I love how kind you are and how special you make me feel.</p>
+<p>I love that we can joke with each other, fake argue, be playful, and then go right back to being soft and loving with each other, even if it is corny. I love how kind you are and how special you make me feel.</p>
 
-<p>I also love your imperfections, even the ones you used to be insecure about. Your skin, your height, everything. None of that bothers me.</p>
+<p>I also love your imperfections, even the ones you used to be insecure about. Your skin, your height, everything. None of those things change how I see you. Even with you being shorter than me, I do not mind at all.</p>
 
-<p>You have helped me make better decisions since being in college. I spend more time focusing on myself, on my space, and on us. When something is bothering me, I know I can come to you. Even if I cannot open up right away, you are patient and you wait until I am ready.</p>
+<p>You have helped me make better decisions since being in college. I have not been going to parties or putting myself around bad company. I spend more time focusing on myself, my space, and our time together. We support each other, and I know that when something is bothering me, I can come to you. Even if it is hard for me to open up right away, you are patient and you wait until I am ready.</p>
 
-<p>I notice the little things. The effort. The small changes. You are human and you still make mistakes, but you learn from them.</p>
+<p>I want you to know that I notice the little things. The small changes. The effort. The way your energy shifts when something matters to me. I see it, and I appreciate it. I love that you are still human. You still make mistakes, but you learn from them instead of using them as excuses.</p>
 
-<p>And I love the way you love me. The nicknames you give me like coconut locks, cherry blossom, sugar dumpling, and all the other crazy names you come up with.</p>
+<p>And I love the way you love me. The nicknames you give me like coconut locks, cherry blossom, sugar dumpling, and all the other crazy names you come up with. That is your way of loving me, and it means a lot to me.</p>
 
-<p>That is what makes you different. That is why I love you, Beast Boy.</p>
+<p>That is what makes you different. That is why I love you, Beast Boy.❤️</p>
 
+        </div>
+    </div>
 </div>
-</div>
+
+<script>
+function toggleEnvelope(element) {
+    element.classList.toggle("open");
+    if (element.classList.contains("open")) {
+        createHeartExplosion(element);
+    }
+}
+
+function createHeartExplosion(envelope) {
+    for (let i = 0; i < 25; i++) {
+        let heart = document.createElement("div");
+        heart.className = "explosion-heart";
+        heart.innerHTML = "♥";
+
+        let x = (Math.random() - 0.5) * 400 + "px";
+        let y = (Math.random() - 0.5) * 400 + "px";
+
+        heart.style.setProperty("--x", x);
+        heart.style.setProperty("--y", y);
+
+        heart.style.left = envelope.offsetWidth / 2 + "px";
+        heart.style.top = envelope.offsetHeight / 2 + "px";
+
+        envelope.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 1000);
+    }
+}
+</script>
 
 </body>
 </html>
