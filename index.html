@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>For My Beast Boy</title>
+<title>For Beast Boy</title>
 
 <style>
 body {
@@ -13,7 +13,7 @@ body {
     overflow: hidden;
 }
 
-/* Floating background hearts */
+/* Floating hearts in background */
 .bg-heart {
     position: absolute;
     color: #ff4d88;
@@ -45,7 +45,7 @@ body {
     cursor: pointer;
     box-shadow: 0 15px 30px rgba(0,0,0,0.2);
     border-radius: 10px;
-    transition: height 0.6s ease;
+    transition: height 0.7s ease;
 }
 
 /* Flap */
@@ -56,18 +56,33 @@ body {
     background: #ffb3c6;
     clip-path: polygon(0 0, 50% 100%, 100% 0);
     transform-origin: top;
-    transition: transform 0.6s ease;
+    transition: transform 0.7s ease;
 }
 
 /* Name on envelope */
 .name {
     position: absolute;
-    bottom: 40px;
+    bottom: 50px;
     width: 100%;
     text-align: center;
-    font-size: 24px;
+    font-size: 26px;
     color: #cc3366;
     font-weight: bold;
+}
+
+.subname {
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+/* Click text */
+.click-text {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: #cc3366;
 }
 
 /* Letter */
@@ -85,6 +100,19 @@ body {
     transition: opacity 0.6s ease;
 }
 
+/* Valentine message that appears when opened */
+.valentine-message {
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    color: #cc3366;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+/* Paragraph style */
 p {
     line-height: 1.7;
     font-size: 15px;
@@ -105,7 +133,11 @@ p {
     opacity: 1;
 }
 
-/* Heart explosion hearts */
+.envelope.open .valentine-message {
+    opacity: 1;
+}
+
+/* Heart explosion */
 .explosion-heart {
     position: absolute;
     color: #ff3366;
@@ -129,7 +161,7 @@ p {
 
 <body>
 
-<!-- Background floating hearts -->
+<!-- Floating hearts -->
 <div class="bg-heart" style="left:10%; animation-delay:0s;">♥</div>
 <div class="bg-heart" style="left:30%; animation-delay:2s;">♥</div>
 <div class="bg-heart" style="left:50%; animation-delay:4s;">♥</div>
@@ -138,40 +170,46 @@ p {
 
 <div class="container">
     <div class="envelope" onclick="toggleEnvelope(this)">
+
         <div class="flap"></div>
 
-        <!-- Change this name if you want -->
-        <div class="name">For Beast Boy💗</div>
+        <!-- Front text -->
+        <div class="name">
+            For Beast Boy
+            <div class="subname">From your Coconut Locs</div>
+        </div>
 
+        <div class="click-text">Click to open</div>
+
+        <!-- Message that appears when opened -->
+        <div class="valentine-message">
+            Happy Valentine’s Day ❤️
+        </div>
+
+        <!-- Letter -->
         <div class="letter">
-            
-<p>You have asked me numerous times why I love you and what makes you different from other guys, and after prolonging it for so long, I thought it was time to tell you now.</p>
 
-<p>One of the reasons why I love you is because you listen to me when I talk. You make me feel seen. You make me feel heard. You actually respond when I talk to you about something and you actually try to make a difference and change certain habits. You respect me. You do not put me down. You always compliment me. You fill me with love. You always reassure me and make sure I do not get any second guesses. You do not even give me time to have second guesses because of the amount of times you tell me that you love me.</p>
+<p>You’ve asked me numerous times why I love you and what makes you different from other guys, and after prolonging it for so long, now’s that time.</p>
 
-<p>When I am with you I do not feel so stressed. I feel happier. I am not as depressed anymore. I feel safe and chosen. You are very consistent with everything that you do, especially when it comes to me. When you were pursuing me, seven years is a long time, and for you to always make it known how you felt about me meant a lot to me.</p>
+<p>One of the reasons why I love you is because you take time to actually listen when we talk. You make me feel seen, and heard. When I address certain habits that I don’t like, instead of coming up with excuses for them, you make an effort to change. I know that changing a certain mindset or habit that you’ve had for so long is hard and although we may have some setbacks I do appreciate your efforts to change especially the fact that you don’t just say you’re going to do better, you actually try. You respect me, don’t put me down, compliment me, and fill me with love. You’re reassuring and don’t leave any space for doubt.</p>
 
-<p>One thing that I really love about your character is that you are kind in a way that is very corny, but I love it. You are genuine about your feelings for me and you make that very clear. Even with us being in a long distance relationship, you still make time for me. You always text me first thing in the morning. If we do not talk all day, you still make sure we talk, even if it is late at night. You call me. You check on me. You make the effort.</p>
+<p>When I’m with you I’m no longer stressed or depressed, I feel happier, safe, and chosen. I find your consistency to be meaningful considering the fact that you’ve liked me so long and made it known.</p>
 
-<p>What makes you different from other people and other men is that you do not give me generic compliments or generic answers. When I ask you specific questions, you actually go into detail about why you love me and what you love about me. You answer all of my random questions, even the ones that might seem silly. You are not overly sexual and you do not make every conversation about that. You never make me feel uncomfortable.</p>
+<p>One thing I really love about your character is your creativity when it comes to being cringy and corny even with the nicknames you give me like coconut locs, sugar dumpling, cherry blood blossom and all the other crazy names you come up with. That is your way of loving me and it means a lot to me. You are genuine about your feelings for me and you never fail to make that clear. Even with us being in a long distance relationship and you being so busy with work, you still make time for me even if that means losing sleep. You always text me when you wake up and if we haven’t talked during the day, you’d make time at night.</p>
 
-<p>I also love that when I told you I felt like things were moving too fast, you slowed down. You listened to me and made sure I was comfortable with everything. That meant a lot to me.</p>
+<p>What makes you different from other men is that you’re not generic. When I ask you questions, you don’t respond vaguely, rather you go into detail about the whole shebang. You answer all of my random questions no matter how ridiculous they may be. You’re not someone that makes me uncomfortable and you don’t make every conversation we have sexual. There’s also this thing about timing with you that I still can’t figure out. Throwback to last year when I had thoughts about our relationship moving too fast, you messaged me asking if I felt as though the relationship was moving too fast or if it was at a reasonable pace for me. The fact that you asked that question at the same time that I was thinking about it really caught me off guard and when I responded, instead of being weird about it, you decided to become a little philosopher with that “we gon walk from Alaska to Carmichael” analogy.</p>
 
-<p>We have been friends for a very long time. We have known each other since seventh grade and now I am a sophomore in college. Our friendship has always been close, and then on Christmas Eve last year we officially became something more. That history means a lot to me.</p>
+<p>I love that we can joke with each other, that you don’t get offended when I call you certain names or when we fake argue. I love how kind you are and how special you make me feel. I love every part of you, even the parts you used to be insecure about. None of those things change how I see you. Although society sometimes makes it seem weird for a tall girl and a not so tall guy to be together, I don’t see anything wrong with it. As someone who used to hate being tall, you’ve encouraged me to embrace my height instead of putting me down.</p>
 
-<p>Another big reason why I love you is because you are willing to change for the better. You had habits and ways about you that were not always the best, but you worked on them. You became more mindful of other people’s feelings. You think before you speak. You are not manipulative. You do not just say you are going to do better. You actually try and you actually show it.</p>
+<p>You’ve helped me with my decision making since being in college. I am not who I once was when I first came to Central. I don’t go to parties anymore or hang around people that encourage bad habits. Since then I’ve spent more time focusing on myself, my space, and our time together. We support each other, and I know that when something’s bothering me, I can come to you. Even if it’s hard for me to open up immediately, you’re patient and you wait until I’m ready.</p>
 
-<p>I love that we can joke with each other, fake argue, be playful, and then go right back to being soft and loving with each other, even if it is corny. I love how kind you are and how special you make me feel.</p>
+<p>I also want you to know that I do notice everything. The small changes, the effort, and even the way your energy shifts when something matters to me. I see it and I know I don’t always give flowers when it’s due, but I do appreciate it.</p>
 
-<p>I also love your imperfections, even the ones you used to be insecure about. Your skin, your height, everything. None of those things change how I see you. Even with you being shorter than me, I do not mind at all.</p>
+<p>Cheers to our first Valentine’s Day and I pray we have many more.</p>
 
-<p>You have helped me make better decisions since being in college. I have not been going to parties or putting myself around bad company. I spend more time focusing on myself, my space, and our time together. We support each other, and I know that when something is bothering me, I can come to you. Even if it is hard for me to open up right away, you are patient and you wait until I am ready.</p>
+<p>I love you, my gremlin. ❤️</p>
 
-<p>I want you to know that I notice the little things. The small changes. The effort. The way your energy shifts when something matters to me. I see it, and I appreciate it. I love that you are still human. You still make mistakes, but you learn from them instead of using them as excuses.</p>
-
-<p>And I love the way you love me. The nicknames you give me like coconut locks, cherry blossom, sugar dumpling, and all the other crazy names you come up with. That is your way of loving me, and it means a lot to me.</p>
-
-<p>That is what makes you different. That is why I love you, Beast Boy.❤️</p>
+<p><strong>Forever your Sugar Dumpling,<br>Happy Valentine’s Day ❤️</strong></p>
 
         </div>
     </div>
@@ -186,13 +224,13 @@ function toggleEnvelope(element) {
 }
 
 function createHeartExplosion(envelope) {
-    for (let i = 0; i < 25; i++) {
+    for (let i = 0; i < 30; i++) {
         let heart = document.createElement("div");
         heart.className = "explosion-heart";
         heart.innerHTML = "♥";
 
-        let x = (Math.random() - 0.5) * 400 + "px";
-        let y = (Math.random() - 0.5) * 400 + "px";
+        let x = (Math.random() - 0.5) * 500 + "px";
+        let y = (Math.random() - 0.5) * 500 + "px";
 
         heart.style.setProperty("--x", x);
         heart.style.setProperty("--y", y);
